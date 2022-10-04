@@ -15,8 +15,11 @@ import com.ace.soundrecorder.databinding.ActivityMainBinding
 const val REQUEST_CODE = 200
 class MainActivity : AppCompatActivity() {
 
-    private var permissions = arrayOf(Manifest.permission.RECORD_AUDIO)
-    private var storagePermission = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private var permissions = arrayOf(
+        Manifest.permission.RECORD_AUDIO,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.MANAGE_EXTERNAL_STORAGE)
     private var permissionGranted = false
 
     private lateinit var binding: ActivityMainBinding
@@ -29,13 +32,13 @@ class MainActivity : AppCompatActivity() {
         permissionGranted = ActivityCompat.checkSelfPermission(
             this, permissions[0]) == PackageManager.PERMISSION_GRANTED
 
-        ActivityCompat.requestPermissions(this, storagePermission, REQUEST_CODE)
+
 
         binding.btnCekPermission.setOnClickListener {
             if (!permissionGranted) {
                 ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE)
             } else {
-                Toast.makeText(this, "Permission Record Diizinkan", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Semua Permission Diizinkan", Toast.LENGTH_LONG).show()
             }
         }
         binding.btnGoToRecord.setOnClickListener{
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         when (requestCode) {
             REQUEST_CODE -> {
                 permissionGranted = grantResults[0] == PackageManager.PERMISSION_GRANTED
-                Toast.makeText(this, "Permission Record Diizinkan", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Semua Permission Diizinkan", Toast.LENGTH_LONG).show()
             }
         }
     }
