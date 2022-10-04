@@ -2,12 +2,9 @@ package com.ace.soundrecorder
 
 import android.annotation.SuppressLint
 import android.media.MediaRecorder
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.ace.soundrecorder.databinding.ActivityRecordBinding
 import java.io.File
 import java.io.IOException
